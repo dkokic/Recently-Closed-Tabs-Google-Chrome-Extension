@@ -269,6 +269,7 @@ function createRctDiv(timestamp, isOptions) {
 		var rctListDivElement = $('<div>')
   		.addClass('rctListDivElement')
   		.attr({ id: 'rctListDivElement' + timestamp })
+  		.attr({ title: bgPage.recentlyClosedTabs[timestamp].title + ((bgPage.recentlyClosedTabs[timestamp].title == bgPage.recentlyClosedTabs[timestamp].url) ? "" : "\n" + bgPage.recentlyClosedTabs[timestamp].url) })
   		.click(function(timestamp) {
   		  bgPage.openRecentlyClosedTab(timestamp);
   		  removeRecentlyClosedTabFromList(timestamp);
@@ -312,8 +313,7 @@ function createRctDiv(timestamp, isOptions) {
   		  .addClass('linkElement')
   		  .attr({
   		    id: 'linkElement' + timestamp,
-  		    href: '#',
-  		    title: '' + bgPage.recentlyClosedTabs[timestamp].url + '' })
+  		    href: '#' })
   		  .appendTo(titleDivElement);
   		var titleTextDivElement = $('<div>')
   		  .addClass('titleTextDivElement')
